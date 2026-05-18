@@ -593,44 +593,44 @@ The SHAP summary plot reveals that:
     # INTERACTIVE FEATURE IMPORTANCE
     # ========================================================
 
-    st.header("Interactive Feature Importance")
+    #     st.header("Interactive Feature Importance")
 
-    importance_df = pd.DataFrame(
-        {
-            "Feature": [
-                "Glucose",
-                "BMI",
-                "Age",
-                "Insulin",
-                "Pregnancies",
-                "BloodPressure",
-                "SkinThickness",
-                "DiabetesPedigreeFunction",
-            ],
-            "Importance": [0.32, 0.21, 0.13, 0.10, 0.08, 0.06, 0.05, 0.05],
-        }
-    )
+    #     importance_df = pd.DataFrame(
+    #         {
+    #             "Feature": [
+    #                 "Glucose",
+    #                 "BMI",
+    #                 "Age",
+    #                 "Insulin",
+    #                 "Pregnancies",
+    #                 "BloodPressure",
+    #                 "SkinThickness",
+    #                 "DiabetesPedigreeFunction",
+    #             ],
+    #             "Importance": [0.32, 0.21, 0.13, 0.10, 0.08, 0.06, 0.05, 0.05],
+    #         }
+    #     )
 
-    importance_fig = px.bar(
-        importance_df,
-        x="Importance",
-        y="Feature",
-        orientation="h",
-        color="Importance",
-        title="Global SHAP Feature Importance",
-    )
+    #     importance_fig = px.bar(
+    #         importance_df,
+    #         x="Importance",
+    #         y="Feature",
+    #         orientation="h",
+    #         color="Importance",
+    #         title="Global SHAP Feature Importance",
+    #     )
 
-    importance_fig.update_layout(height=500)
+    #     importance_fig.update_layout(height=500)
 
-    st.plotly_chart(importance_fig, use_container_width=True)
+    #     st.plotly_chart(importance_fig, use_container_width=True)
 
-    st.markdown("""
-The model primarily relies on glucose and BMI because these
-features exhibit strong separability between diabetic and
-non-diabetic patient populations.
-""")
+    #     st.markdown("""
+    # The model primarily relies on glucose and BMI because these
+    # features exhibit strong separability between diabetic and
+    # non-diabetic patient populations.
+    # """)
 
-    st.markdown("---")
+    #     st.markdown("---")
 
     # ========================================================
     # FEATURE DEPENDENCE
@@ -701,38 +701,38 @@ collectively pushed the patient toward high diabetes risk.
     # INTERACTIVE PATIENT EXPLANATION
     # ========================================================
 
-    st.header("Interactive Clinical Interpretation")
+    #     st.header("Interactive Clinical Interpretation")
 
-    glucose_level = st.slider("Glucose Level", 50, 200, 140, key="shap_glucose")
+    #     glucose_level = st.slider("Glucose Level", 50, 200, 140, key="shap_glucose")
 
-    bmi_level = st.slider("BMI Level", 10.0, 50.0, 32.0, key="shap_bmi")
+    #     bmi_level = st.slider("BMI Level", 10.0, 50.0, 32.0, key="shap_bmi")
 
-    shap_demo_df = pd.DataFrame(
-        {
-            "Feature": ["Glucose", "BMI"],
-            "Contribution": [glucose_level / 200, bmi_level / 50],
-        }
-    )
+    #     shap_demo_df = pd.DataFrame(
+    #         {
+    #             "Feature": ["Glucose", "BMI"],
+    #             "Contribution": [glucose_level / 200, bmi_level / 50],
+    #         }
+    #     )
 
-    contrib_fig = px.bar(
-        shap_demo_df,
-        x="Feature",
-        y="Contribution",
-        color="Contribution",
-        title="Illustrative Feature Contribution",
-    )
+    #     contrib_fig = px.bar(
+    #         shap_demo_df,
+    #         x="Feature",
+    #         y="Contribution",
+    #         color="Contribution",
+    #         title="Illustrative Feature Contribution",
+    #     )
 
-    contrib_fig.update_layout(height=400)
+    #     contrib_fig.update_layout(height=400)
 
-    st.plotly_chart(contrib_fig, use_container_width=True)
+    #     st.plotly_chart(contrib_fig, use_container_width=True)
 
-    st.info("""
-This simplified visualization demonstrates how increasing
-clinical measurements can increase model contribution toward
-diabetes prediction.
-""")
+    #     st.info("""
+    # This simplified visualization demonstrates how increasing
+    # clinical measurements can increase model contribution toward
+    # diabetes prediction.
+    # """)
 
-    st.markdown("---")
+    #     st.markdown("---")
 
     # ========================================================
     # BLACK BOX TO TRANSPARENCY
