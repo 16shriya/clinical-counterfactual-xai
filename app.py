@@ -1028,10 +1028,18 @@ indicating additional intervention may be necessary.
         }
     )
 
+    melted_df = change_df.melt(
+        id_vars="Feature",
+        value_vars=["Original", "Modified"],
+        var_name="Scenario",
+        value_name="Value",
+    )
+
     change_fig = px.bar(
-        change_df,
+        melted_df,
         x="Feature",
-        y=["Original", "Modified"],
+        y="Value",
+        color="Scenario",
         barmode="group",
         title="Original vs Counterfactual Features",
     )
