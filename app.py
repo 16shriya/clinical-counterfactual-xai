@@ -362,6 +362,7 @@ machine learning predicts diabetes risk probability.
         pregnancies = st.slider("Pregnancies", 0, 17, 2, key="obj1_preg")
 
         bp = st.slider("Blood Pressure", 30, 130, 70, key="obj1_bp")
+        dpf = st.slider("Diabetes Pedigree Function", 0.05, 2.5, 0.5, key="obj1_dpf")
 
         skin = st.slider("Skin Thickness", 0, 99, 20, key="obj1_skin")
 
@@ -378,6 +379,7 @@ machine learning predicts diabetes risk probability.
                 "SkinThickness": skin,
                 "Insulin": insulin,
                 "BMI": bmi,
+                "DiabetesPedigreeFunction": dpf,
                 "Age": age,
             }
         ]
